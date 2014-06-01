@@ -1,6 +1,8 @@
 vimrc
 ------------
-My setting for vim editor
+My vimrc setting for vim editor
+[![Screenshot](vimrc_screenshot.jpg)](https://raw.githubusercontent.com/z-sean-huang/vimrc/master/vimrc_screenshot.jpg)
+
 
 Installation
 ------------
