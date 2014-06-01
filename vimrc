@@ -49,6 +49,9 @@ let g:ctrlp_prompt_mappings = {'AcceptSelection("t")': ['<cr>'], 'AcceptSelectio
 
 Bundle 'scrooloose/nerdtree'
 
+if !iCanHazVundle
+    BundleInstall
+endif
 
 filetype plugin indent on       " required!
 
