@@ -77,6 +77,9 @@ noremap <F4> :NERDTreeToggle<CR>
 
 "-- cursorline
 se cursorline
+hi Search guibg=peru guifg=wheat
+hi Search cterm=NONE ctermfg=black ctermbg=yellow
+
 hi cursorLine term=none cterm=none ctermbg=4
 autocmd InsertLeave * hi cursorLine term=none cterm=none ctermbg=4
 autocmd InsertEnter * hi cursorLine term=none cterm=none ctermbg=0
@@ -120,6 +123,7 @@ if has("cscope")
     endif
 endif
 set csre
+
 
 noremap <leader>cs :cs find s 
 noremap <C-\>s :tab cs find s <C-R>=expand("<cword>")<CR><CR>
