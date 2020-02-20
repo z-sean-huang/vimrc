@@ -90,3 +90,45 @@ hi comment term=none cterm=none ctermbg=none ctermfg=darkgray
 "set statusline+=%4*%=\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
 "highlight User1 cterm=bold ctermfg=white ctermbg=blue
 
+"let NERDTreeMapOpenInTab='\r'
+let NERDTreeMapOpenInTab='<ENTER>'
+
+
+function! Create_cscope_file(execfile)                                           
+    exe "! bash" a:execfile a:execfile                                                                  
+endfunction
+
+function! Create_cscope_out(cscope_files)                                           
+    exe "! cscope -bRq -i" a:cscope_files                                                                  
+endfunction
+
+if has("cscope")
+    let cscope_exec=findfile("cscope.sh", ".;")
+    if !empty(cscope_exec)
+        if cscope_exec ==? "cscope.sh"
+            set csre
+        endif
+        "silent call Create_cscope_file(cscope_exec)
+        let cscope_files=findfile("cscope.files", ".;")
+        if !empty(cscope_files) && filereadable(cscope_files)
+            "silent call Create_cscope_out(cscope_files)
+            let cscope_out=findfile("cscope.out", ".;")
+            if !empty(cscope_out) && filereadable(cscope_out)
+                silent exe "cs add" cscope_out
+            endif
+        endif
+    endif
+endif
+
+
+noremap <leader>cs :cs find s 
+noremap <C-\>s :tab cs find s <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>g :tab cs find g <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>c :tab cs find c <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>d :tab cs find d <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>t :tab cs find t <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>e :tab cs find e <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>f :tab cs find f <C-R>=expand("<cfile>")<CR><CR>
+noremap <C-\>i :tab cs find i <C-R>=expand("<cfile>")<CR><CR>
+
+
