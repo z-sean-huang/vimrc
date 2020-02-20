@@ -119,7 +119,7 @@ if has("cscope")
         endif
     endif
 endif
-
+set csre
 
 noremap <leader>cs :cs find s 
 noremap <C-\>s :tab cs find s <C-R>=expand("<cword>")<CR><CR>
