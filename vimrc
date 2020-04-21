@@ -66,6 +66,10 @@ set autoread                    " auto read when file is changed from outside
 set clipboard=unnamed           " yank to the system register (*) by default
 set ts=4 shiftwidth=4 expandtab " replace tab with 4 spaces
 
+"https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters
+set list
+set listchars=tab:>-
+
 "-- shortcut
 noremap <F1> gT<CR>
 noremap <F2> gt<CR>
